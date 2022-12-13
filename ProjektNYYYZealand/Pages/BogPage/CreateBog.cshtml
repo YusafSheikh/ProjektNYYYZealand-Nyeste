@@ -1,0 +1,48 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.BogPage.CreateBogModel
+@{
+    ViewData["Title"] = "Create Bog ";
+}
+
+<h1>Create</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.bog.BogId" class="control-label"></label>
+                <input asp-for="@Model.bog.BogId" class="form-control" />
+                <span asp-validation-for="@Model.bog.BogId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.bog.Forfatter" class="control-label"></label>
+                <input asp-for="@Model.bog.Forfatter" class="form-control" />
+                <span asp-validation-for="@Model.bog.Forfatter" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.bog.Title" class="control-label"></label>
+                <input asp-for="@Model.bog.Title" class="form-control" />
+                <span asp-validation-for="@Model.bog.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.bog.Year" class="control-label"></label>
+                <input asp-for="@Model.bog.Year" class="form-control" />
+                <span asp-validation-for="@Model.bog.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.bog.Isbn" class="control-label"></label>
+                <input asp-for="@Model.bog.Isbn" class="form-control" />
+                <span asp-validation-for="@Model.bog.Isbn" class="text-danger"></span>
+            </div>
+
+   
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+    </form>
+</div>
+<a asp-page="GetBøger">Tilbage</a>
+</div>

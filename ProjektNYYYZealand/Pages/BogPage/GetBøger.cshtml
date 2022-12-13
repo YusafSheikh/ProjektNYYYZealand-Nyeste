@@ -1,0 +1,123 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.BogPage.GetBøgerModel
+@{
+
+    ViewData["Titel"] = "GetBøger";
+
+}
+
+
+
+<form>
+
+    <p>
+
+        TITEL: <input type="text" asp-for="Title" />
+
+        FORFATTER: <input type="text" asp-for="Forfatter" />
+
+        ISBN <input type="text" asp-for="ISBN" />
+
+        <input type="submit" value="Søg her" />
+
+    </p>
+
+</form>
+
+<p>
+
+    <a asp-page="/BogPage/CreateBog">Opret en ny Bog</a>
+
+</p>
+
+
+
+<h1> Liste over Bøger</h1>
+
+
+
+<table class=" tabel">
+
+    <thead>
+
+        <tr>
+
+            <th>Bog_Id</th>
+
+            <th>Title</th>
+
+            <th>Forfatter</th>
+
+            <th>Year</th>
+
+            <th>ISBN</th>
+
+@*            <th>Billede</th>
+*@
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @if (Model.Bøger != null)
+
+        {
+
+            @foreach (var item in Model.Bøger)
+
+            {
+
+                <tr>
+
+                    <td>@item.BogId</td>
+
+                    <td>@item.Title</td>
+
+
+
+                    <td>@item.Forfatter</td>
+
+                    <td>@item.Year</td>
+
+                    <td>@item.Isbn</td>
+
+@*                    <td>
+
+                        <img src="~/Image/@item.Billede" width="80" height="70">
+
+                    </td>*@
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/BogPage/DeleteBog" asp-route-id="@item.BogId">Slet Bogen</a>
+
+                        </p>
+
+                    </td>
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/BogPage/UpdateBog" asp-route-id="@item.BogId">Opdater Bog</a>
+
+                        </p>
+
+                    </td>
+
+
+
+                </tr>
+
+            }
+
+        }
+
+    </tbody>
+
+
+
+</table>

@@ -1,0 +1,125 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.HoldPage.GetHoldsModel
+@{
+    
+    ViewData["Titel"] = "GetHolds";
+
+}
+
+
+
+<form>
+
+    <p>
+
+        HOLDNAVN: <input type="text" asp-for="Holdnavn" />
+
+        SEMESTER: <input type="text" asp-for="Semester" />
+
+        UDDANNELSE <input type="text" asp-for="Uddannelse" />
+
+
+
+        <input type="submit" value="Søg her" />
+
+
+
+
+
+    </p>
+
+</form>
+
+<p>
+
+    <a asp-page="/HoldPage/CreateHold">Opret et nyt hold</a>
+
+</p>
+
+
+
+<h1> Liste over Hold</h1>
+
+
+
+<table class=" tabel">
+
+    <thead>
+
+        <tr>
+
+            <th>Hold_Id</th>
+
+            <th>Navn</th>
+
+            <th>Semester</th>
+
+            <th>Uddannelse</th>
+
+            <th>Billede</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @if (Model.Holds != null)
+
+        {
+
+            @foreach (var item in Model.Holds)
+
+            {
+
+                <tr>
+
+                    <td>@item.HoldId</td>
+
+                    <td>@item.Holdnavn</td>
+
+
+                    <td>@item.Semester</td>
+
+                    <td>@item.Uddannelse</td>
+
+@*                    <td>
+
+                        <img src="~/Image/@item.Billede" width="80" height="70">
+
+                    </td>*@
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/HoldPage/DeleteHold" asp-route-id="@item.HoldId">Slet Holdet</a>
+
+                        </p>
+
+                    </td>
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/HoldPage/UpdateHold" asp-route-id="@item.HoldId">Opdater Hold</a>
+
+                        </p>
+
+                    </td>
+
+
+
+                </tr>
+
+            }
+
+        }
+
+    </tbody>
+
+
+
+</table>
+}
