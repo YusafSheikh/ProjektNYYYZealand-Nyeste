@@ -31,6 +31,8 @@ namespace ProjektNYYYZealand
             services.AddTransient<IUnderviserService, UnderviserService>();
             services.AddTransient<IBogservice, Bogservice>();
             services.AddTransient<IHoldService, HoldService>();
+            services.AddTransient<IUndervisereHoldService, UndervisereHoldService>();
+            services.AddTransient<IBogHoldService, BogHoldService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

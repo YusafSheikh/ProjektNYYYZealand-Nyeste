@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace ProjektNYYYZealand.Pages.HoldPage
 {
-    public class CreateHoldModel : PageModel
+    public class UpdateHoldModel : PageModel
     {
         public IEnumerable<Hold> Holds { get; set; }
 
@@ -15,9 +15,15 @@ namespace ProjektNYYYZealand.Pages.HoldPage
         [BindProperty]
         public Hold hold { get; set; }
 
-        public CreateHoldModel(IHoldService service)
+        public UpdateHoldModel(IHoldService service)
         {
-            this.holdService = service;
+            holdService = service;
+
+        }
+
+        public void OnGet(int id)
+        {
+            hold = holdService.GetHoldById(id);
         }
 
         public IActionResult OnPost()
@@ -27,7 +33,7 @@ namespace ProjektNYYYZealand.Pages.HoldPage
             {
                 return Page();
             }
-            holdService.AddHold(hold);
+            holdService.UpdateHold(hold);
             return RedirectToPage("GetHold");
 
         }

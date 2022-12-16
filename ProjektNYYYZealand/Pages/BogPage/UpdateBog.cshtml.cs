@@ -7,40 +7,36 @@ using System.Collections.Generic;
 
 namespace ProjektNYYYZealand.Pages.BogPage
 {
-    public class CreateBogModel : PageModel
+    public class UpdateBogModel : PageModel
     {
         public IEnumerable<Bog> Bøger { get; set; }
 
         IBogservice bogservice;
-       public string Error { get; set; }
+
         [BindProperty]
         public Bog bog { get; set; }
 
-        public CreateBogModel(IBogservice service)
+        public UpdateBogModel(IBogservice service)
         {
             bogservice = service;
-        
+
+        }
+
+        public void OnGet(int id)
+        {
+            bog = bogservice.GetBogById(id);
         }
 
         public IActionResult OnPost()
         {
-            
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            try
-            {
-                bogservice.AddBog(bog);
-            }
-            catch
-            {
-                Error = "Bog_id findes, FORSØG IGEN ";
-                return Page();
-            }
+            bogservice.UpdateBog(bog);
             return RedirectToPage("GetBøger");
 
         }
     }
 }
-    

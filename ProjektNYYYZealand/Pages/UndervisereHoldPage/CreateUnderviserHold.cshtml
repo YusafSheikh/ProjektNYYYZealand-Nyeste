@@ -1,0 +1,38 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.UndervisereHoldPage.CreateUnderviserHoldModel
+@{
+    ViewData["Title"] = "Create underviserhold ";
+}
+
+<h1>Create</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.undervisereHold.UndervisereHoldId" class="control-label"></label>
+                <input asp-for="@Model.undervisereHold.UndervisereHoldId" class="form-control" />
+                <span asp-validation-for="@Model.undervisereHold.UndervisereHoldId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.undervisereHold.HoldId" class="control-label"></label>
+                <input asp-for="@Model.undervisereHold.HoldId" class="form-control" />
+                <span asp-validation-for="@Model.undervisereHold.HoldId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.undervisereHold.UnderviserId" class="control-label"></label>
+                <input asp-for="@Model.undervisereHold.UnderviserId" class="form-control" />
+                <span asp-validation-for="@Model.undervisereHold.UnderviserId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>  
+    <a asp-page="UnderviserHoldPage">Tilbage</a>
+</div>

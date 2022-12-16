@@ -1,0 +1,41 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.HoldPage.UpdateHoldModel
+@{
+    ViewData["Title"] = "Update Hold"; 
+}
+
+<h1>Create</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.hold.HoldId" class="control-label"></label>
+                <input asp-for="@Model.hold.HoldId" class="form-control" />
+                <span asp-validation-for="@Model.hold.HoldId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.hold.Holdnavn" class="control-label"></label>
+                <input asp-for="@Model.hold.Holdnavn" class="form-control" />
+                <span asp-validation-for="@Model.hold.Holdnavn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.hold.Semester" class="control-label"></label>
+                <input asp-for="@Model.hold.Semester" class="form-control" />
+                <span asp-validation-for="@Model.hold.Semester" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.hold.Uddannelse" class="control-label"></label>
+                <input asp-for="@Model.hold.Uddannelse" class="form-control" />
+                <span asp-validation-for="@Model.hold.Uddannelse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <a asp-page="GetHold">Tilbage</a>
+</div>

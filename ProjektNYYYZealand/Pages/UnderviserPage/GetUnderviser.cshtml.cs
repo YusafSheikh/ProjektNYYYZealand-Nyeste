@@ -16,26 +16,13 @@ namespace ProjektNYYYZealand.Pages.UnderviserPage
         public GetUnderviserModel(IUnderviserService services)
         {
             this.service = services;
-        }
+        }                         
 
         [BindProperty(SupportsGet = true)]
-        public int UnderviserId { get; set; }
-
-
-        [BindProperty(SupportsGet = true)]
-        public int MedarbejderNumber { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public string Name { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public string Email { get; set; }
-
+        public string Name { get; set; }                
         public void OnGet()
         {
             Undervisers = service.GetUndervisers(Name);
-            //Undervisers = service.GetUnderviser();
-            //Undervisers = service.GetUnderviser(UnderviserId, MedarbejderNumber, Name, Email);
 
         }
     }

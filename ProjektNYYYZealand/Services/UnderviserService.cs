@@ -45,7 +45,7 @@ namespace ProjektNYYYZealand.Services
                     return context.Undervisers;
                 }
 
-                return context.Set<Underviser>().Where(s => s.Name.StartsWith(Filter));
+                return context.Set<Underviser>().Where(s => s.Name.ToUpper() . StartsWith(Filter));
             }
 
         }

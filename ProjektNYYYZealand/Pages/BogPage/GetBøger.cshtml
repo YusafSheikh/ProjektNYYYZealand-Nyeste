@@ -36,7 +36,7 @@
 
 
 
-<table class=" tabel">
+<table class=" table-bordered">
 
     <thead>
 
@@ -52,8 +52,8 @@
 
             <th>ISBN</th>
 
-@*            <th>Billede</th>
-*@
+
+
         </tr>
 
     </thead>
@@ -82,17 +82,13 @@
 
                     <td>@item.Isbn</td>
 
-@*                    <td>
-
-                        <img src="~/Image/@item.Billede" width="80" height="70">
-
-                    </td>*@
+                   
 
                     <td>
 
                         <p>
 
-                            <a asp-page="/BogPage/DeleteBog" asp-route-id="@item.BogId">Slet Bogen</a>
+                            <a asp-page="/BogPage/DeleteBog" asp-route-id="@item.BogId">Slet </a>
 
                         </p>
 
@@ -102,7 +98,7 @@
 
                         <p>
 
-                            <a asp-page="/BogPage/UpdateBog" asp-route-id="@item.BogId">Opdater Bog</a>
+                            <a asp-page="/BogPage/UpdateBog" asp-route-id="@item.BogId">Opdater</a>
 
                         </p>
 

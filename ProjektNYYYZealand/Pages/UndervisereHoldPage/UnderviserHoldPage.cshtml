@@ -1,0 +1,84 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.UndervisereHoldPage.UnderviserHoldPageModel
+@{
+
+    ViewData["Titel"] = "GetUnderviserHold";
+}
+<p>
+
+    <a asp-page="/UndervisereHoldPage/CreateUnderviserHold">Opret et nyt underviserehold</a>
+
+</p>
+
+<h1> Liste over underviserehold</h1>
+
+<table class=" table-bordered">
+
+    <thead>
+
+        <tr>
+
+            <th>UndervisereHold_Id</th>
+
+            
+            <th>Hold Navn</th>
+
+           
+            <th>Underviser Navn</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @if (Model.UnderviserHold != null)
+
+        {
+
+            @foreach (var item in Model.UnderviserHold)
+
+            {
+
+                <tr>
+
+                    <td>@item.UndervisereHoldId</td>
+
+                   
+                    <td>@item.Hold.Holdnavn</td>
+
+                    <td>@item.Underviser.Name</td>
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/UndervisereHoldPage/DeleteUnderviserHold" asp-route-id="@item.UndervisereHoldId">Slet</a>
+
+                        </p>
+
+                    </td>
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/UndervisereHoldPage/UpdateUnderviserHold" asp-route-id="@item.UndervisereHoldId">Opdater </a>
+
+                        </p>
+
+                    </td>
+
+
+
+                </tr>
+
+            }
+
+        }
+
+    </tbody>
+
+
+
+</table>

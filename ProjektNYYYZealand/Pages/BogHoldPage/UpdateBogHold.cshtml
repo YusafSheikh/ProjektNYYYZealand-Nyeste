@@ -1,0 +1,44 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.BogHoldPage.UpdateBogHoldModel
+@{
+    ViewData["Title"] = "Update BogHold ";
+}
+
+<h1>Update</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.bogHold.BogHoldId)
+        </dt>
+        <dd class="table-bordered">
+                @Html.DisplayFor(model => model.bogHold.BogId)
+        </dd>
+            @*<div class="form-group">
+                <label asp-for="@Model.bogHold.BogHoldId" class="control-label"></label>
+                <input asp-for="@Model.bogHold.BogHoldId" class="form-control" />
+                <span asp-validation-for="@Model.bogHold.BogHoldId" class="text-danger"></span>
+            </div>*@
+
+            <div class="form-group">
+                <label asp-for="@Model.bogHold.BogId" class="control-label"></label>
+                <input asp-for="@Model.bogHold.BogId" class="form-control" />
+                <span asp-validation-for="@Model.bogHold.BogId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.bogHold.HoldId" class="control-label"></label>
+                <input asp-for="@Model.bogHold.HoldId" class="form-control" />
+                <span asp-validation-for="@Model.bogHold.HoldId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <a asp-page="GetBogHoldPage">Tilbage</a>
+</div>

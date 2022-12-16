@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using ProjektNYYYZealand.Interfaces;
 using ProjektNYYYZealand.Models;
 using System.Collections.Generic;
@@ -29,7 +30,11 @@ namespace ProjektNYYYZealand.Services
 
         public void DeleteHold(int Id)
         {
-            throw new System.NotImplementedException();
+            {
+                Hold Hold = GetHoldById(Id);
+                context.Holds.Remove(Hold);
+                context.SaveChanges(true);
+            }
         }
 
         public IEnumerable<Hold> GetHold(string Filter)
@@ -48,8 +53,22 @@ namespace ProjektNYYYZealand.Services
 
         public IEnumerable<Hold> GetHold(string holdnavn, string semester, string uddannelse)
         {
-            return context.Holds;
+            IEnumerable<Hold> result = context.Holds;
+            if (holdnavn != null)
+            {
+                result = result.Where(r => r.Holdnavn.ToLower().StartsWith(holdnavn));
+            }
+            if (semester != null)
+            {
+                result = result.Where(r => r.Semester.ToLower().StartsWith(semester));
+            }
+            if (uddannelse != null)
+            {
+                result = result.Where(r => r.Uddannelse == uddannelse);
+            }
+            return result;
         }
+
 
         public Hold GetHoldById(int Id)
         {

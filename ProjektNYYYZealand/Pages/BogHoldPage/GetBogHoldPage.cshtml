@@ -1,0 +1,84 @@
+﻿@page
+@model ProjektNYYYZealand.Pages.BogHoldPage.GetBogHoldPageModel
+@{
+    ViewData["Titel"] = " BogHold";
+}
+<p class="btn btn-dark" style="background-color:blue">
+
+    <a asp-page="/BogHoldPage/CreateBogHold" style="color:aliceblue">Opret et nyt BogHold</a>
+
+</p>
+
+
+
+<h1> Liste over boghold</h1>
+
+
+
+<table class=" table-bordered">
+
+    <thead>
+
+        <tr>
+
+            <th>BogHoldId</th>
+
+            <th>BogId</th>
+
+            <th>HoldId</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @if (Model.BogHolds != null)
+
+        {
+
+            @foreach (var item in Model.BogHolds)
+
+            {
+
+                <tr>
+
+                    <td>@item.BogHoldId</td>
+
+                    <td>@item.BogId</td>
+                    <td>@item.Hold.Holdnavn</td>
+                    <td>@item.HoldId</td>
+                    
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/BogHoldPage/DeleteBogHold" asp-route-id="@item.BogHoldId">Slet</a>
+
+                        </p>
+
+                    </td>
+
+                    <td>
+
+                        <p>
+
+                            <a asp-page="/BogHoldPage/UpdateBogHold" asp-route-id="@item.BogHoldId">Opdater </a>
+
+                        </p>
+
+                    </td>
+
+
+
+                </tr>
+
+            }
+
+        }
+
+    </tbody>
+
+
+
+</table>
