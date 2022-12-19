@@ -1,0 +1,43 @@
+﻿CREATE TABLE [dbo].[Bog] (
+    [Bog_id]    INT           NOT NULL,
+    [Year]      INT           NOT NULL,
+    [Title]     VARCHAR (256) NOT NULL,
+    [Forfatter] VARCHAR (256) NOT NULL,
+    [ISBN]      INT           NULL,
+    PRIMARY KEY CLUSTERED ([Bog_id] ASC)
+);
+
+CREATE TABLE [dbo].[BogHold] (
+    [BogHold_Id] INT NOT NULL,
+    [Bog_Id]     INT NOT NULL,
+    [Hold_Id]    INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([BogHold_Id] ASC),
+    FOREIGN KEY ([Hold_Id]) REFERENCES [dbo].[Hold] ([Hold_id]),
+    FOREIGN KEY ([Bog_Id]) REFERENCES [dbo].[Bog] ([Bog_id])
+);
+
+CREATE TABLE [dbo].[Hold] (
+    [Hold_id]    INT           NOT NULL,
+    [Holdnavn]   VARCHAR (256) NOT NULL,
+    [Semester]   VARCHAR (256) NOT NULL,
+    [Uddannelse] VARCHAR (256) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Hold_id] ASC)
+);
+
+CREATE TABLE [dbo].[Underviser] (
+    [Underviser_id]     INT           IDENTITY (1, 1) NOT NULL,
+    [MedarbejderNumber] INT           NOT NULL,
+    [Name]              VARCHAR (256) NOT NULL,
+    [Email]             VARCHAR (256) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Underviser_id] ASC)
+);
+
+CREATE TABLE [dbo].[UndervisereHold] (
+    [UndervisereHold_Id] INT NOT NULL,
+    [Hold_Id]            INT NOT NULL,
+    [Underviser_Id]      INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([UndervisereHold_Id] ASC),
+    FOREIGN KEY ([Hold_Id]) REFERENCES [dbo].[Hold] ([Hold_id]),
+    FOREIGN KEY ([Underviser_Id]) REFERENCES [dbo].[Underviser] ([Underviser_id])
+);
+
